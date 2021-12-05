@@ -21,7 +21,7 @@ jobs:
           
       # Run R script
       - name: Scrape
-        run: MICEX_top_gainers.R
+        run: Script MICEX_top_gainers.R
         
       # Add new files in data folder, commit along with other modified files, push
       - name: Commit files
