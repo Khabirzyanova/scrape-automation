@@ -31,4 +31,4 @@ company_name <- top_gainers$name
 last_price <- str_split_fixed(top_gainers$latest_price_previous_close, '\r\n', 2)[,1]
 top_gainers <- data.frame(company_name, last_price, percent_gain)
 
-write_csv(top_gainers,paste0('project2/data/',Sys.Date(),'_top_gainers','.csv'))
+write_csv(top_gainers,paste0('data/',Sys.Date(),'_top_gainers','.csv'))
