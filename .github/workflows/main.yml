@@ -1,7 +1,6 @@
 name: MICEX_top_gainers
 
 on:
-  repository_dispatch:
   schedule:
     - cron: '*/5 * * * *'
   
