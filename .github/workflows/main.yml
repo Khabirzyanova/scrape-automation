@@ -1,36 +1,36 @@
-name: MICEX_top_gainers
+# name: MICEX_top_gainers
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'
   
-jobs:
-  autoscrape:
-    runs-on: macos-latest
+# jobs:
+#   autoscrape:
+#     runs-on: macos-latest
 
-    steps:
-      - uses: actions/checkout@master
-      - uses: r-lib/actions/setup-r@master
+#     steps:
+#       - uses: actions/checkout@master
+#       - uses: r-lib/actions/setup-r@master
       
-      # Set-up R
-      - name: Install packages
-        run: |
-          R -e 'install.packages("tidyverse")'
-          R -e 'install.packages("janitor")'
-          R -e 'install.packages("rvest")'
+#       # Set-up R
+#       - name: Install packages
+#         run: |
+#           R -e 'install.packages("tidyverse")'
+#           R -e 'install.packages("janitor")'
+#           R -e 'install.packages("rvest")'
           
-      # Run R script
-      - name: Scrape
-        run: Rscript MICEX_top_gainers.R
+#       # Run R script
+#       - name: Scrape
+#         run: Rscript MICEX_top_gainers.R
         
-      # Add new files in data folder, commit along with other modified files, push
-      - name: Commit files
-        run: |
-          git config --local user.name github-actions
-          git config --local user.email "actions@github.com"
-          git add data/*
-          git commit -am "GH ACTION Autorun $(date)"
-          git push origin main
-        env:
-          REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-          username: github-actions
+#       # Add new files in data folder, commit along with other modified files, push
+#       - name: Commit files
+#         run: |
+#           git config --local user.name github-actions
+#           git config --local user.email "actions@github.com"
+#           git add data/*
+#           git commit -am "GH ACTION Autorun $(date)"
+#           git push origin main
+#         env:
+#           REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+#           username: github-actions
